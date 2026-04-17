@@ -23,15 +23,21 @@ const receive = async (exchange, queue) => {
   const bind = await channel.bindQueue(queue, exchange, queue);
 
   // Đăng ký một consumer để nhận tin nhắn từ queue. Khi có tin nhắn mới, callback function sẽ được gọi với đối số là tin nhắn (msg). Trong callback, chúng ta kiểm tra nếu msg không null, sau đó log nội dung tin nhắn và gửi ACK để xác nhận đã nhận được tin nhắn
-  channel.consume(q.queue, (msg) => {
-    if (msg !== null) {
-      console.log(
-        `Received message from queue ${queue}: ${msg.content.toString()}`,
-      );
-      channel.ack(msg);
-    }
-  });
+  channel.consume(
+    q.queue,
+    (msg) => {
+      if (msg !== null) {
+        console.log(
+          `Received message from queue ${queue}: ${msg.content.toString()}`,
+        );
+        channel.ack(msg);
+      }
+    },
+    { noAck: false },
+  );
 };
+
+// noAck: true có nghĩa là khi một tin nhắn được gửi đến consumer, RabbitMQ sẽ tự động đánh dấu tin nhắn đó là đã được xử lý (acknowledged) ngay khi nó được gửi đi, mà không cần chờ consumer gửi ACK. Điều này có thể dẫn đến mất tin nhắn nếu consumer gặp sự cố trước khi xử lý xong tin nhắn. Ngược lại, noAck: false yêu cầu consumer phải gửi ACK sau khi đã xử lý xong tin nhắn, giúp đảm bảo rằng tin nhắn sẽ không bị mất nếu consumer gặp sự cố.
 
 // Gọi hàm receive để nhận message
 receive("messages", "send_nv1");
