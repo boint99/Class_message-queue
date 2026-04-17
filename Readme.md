@@ -11,9 +11,13 @@ Nội dung:
 5. priority queue
 6. Durability & Persistence
 
-# 4 Quy tác
+# 4 Quy tắc BIND
 
 1. direct exchange: Hiểu đơn giản gửi msg vào queue có routing key khớp chính xác.
-2. Fanout exchange
+   ex: những msg nào cùng exchange và routing key thì mới nhận được dạng 1:1
+
+2. Fanout exchange: Gửi msg tới tất cả queue đã được bay bào exchange bỏ qua routing key
+   ex: gửi thông báo cho toàn user
+
 3. Topic exchange
 4. Header
