@@ -10,3 +10,10 @@ Nội dung:
 4. Delayed Message.
 5. priority queue
 6. Durability & Persistence
+
+# 4 Quy tác
+
+1. direct exchange: Hiểu đơn giản gửi msg vào queue có routing key khớp chính xác.
+2. Fanout exchange
+3. Topic exchange
+4. Header

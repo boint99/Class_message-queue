@@ -2,6 +2,7 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
+    restart: always
     env_file:
       - .env
     ports:
@@ -14,7 +15,6 @@ services:
       RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE:-}
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
-    restart: unless-stopped
 
 volumes:
   rabbitmq_data:
