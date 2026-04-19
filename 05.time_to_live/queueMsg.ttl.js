@@ -23,4 +23,4 @@ const queueMsgTTL = async () => {
   await channel.close();
   await connection.close();
 };
-queueTTL().catch(console.error);
+queueMsgTTL().catch(console.error);

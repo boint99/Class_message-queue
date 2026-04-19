@@ -18,7 +18,11 @@
 
 2. TTL (Time to live): Mọi msg gửi vào điều có thời gian sau khoảng thời gian đã khai báo thì nó sẽ hết hạn.
 
-3. DLX (dead letter exchange)
+3. DLX (dead letter exchange):
+
+- Là một cơ chế khi thực hiện 1 việc nào đó mà bị lỗi thì nó sẽ là người lưu lại thông tin và sẽ được thực hiện lại.
+- sẽ có 1 worker đễ lưu chúng lại
+
 4. Delayed Message.
 5. priority queue
 6. Durability & Persistence
