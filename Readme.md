@@ -24,6 +24,7 @@
 - sẽ có 1 worker đễ lưu chúng lại
 
 4. Delayed Message.
+   note: không dùng fanout
 5. priority queue
 6. Durability & Persistence
 
