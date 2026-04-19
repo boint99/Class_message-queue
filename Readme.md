@@ -25,7 +25,10 @@
 
 4. Delayed Message.
    note: không dùng fanout
-5. priority queue
+5. priority queue:
+
+- là sự ưu tiên công dụng là ưu tiên 1 công việc nào đó
+
 6. Durability & Persistence
 
 # Thuật ngữ:
